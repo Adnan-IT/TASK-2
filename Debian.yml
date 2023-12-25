@@ -21,7 +21,7 @@
 
     - name: Download a Template on Debian
       get_url:
-        url: https://www.free-css.com/assets/files/free-css-templates/download/page294/shapel.zip
+        url: https://www.free-css.com/free-css-templates/page1/education-time
         dest: /tmp/shapel.zip
 
     - name: Extract Template
