@@ -3,28 +3,29 @@
   - name: Disable SELinux
     selinux:
       state: disabled
+
   - name: Install packages
     yum:
       name: "{{ packages }}"
     vars:
       packages:
-      - httpd
-      - unzip
+        - httpd
+        - unzip
+
   - name: Start and Enable Apache
     systemd:
       name: httpd
       state: started
       enabled: yes
+
   - name: Download a Template
     get_url:
-      url: https://www.free-css.com/free-css-templates/page1/education-time
-      dest: /tmp/shapel.zip
+      url: https://www.free-css.com/assets/files/free-css-templates/download/page1/education-time.zip
+      dest: /tmp/education-time.zip
+
   - name: Extract Template
     unarchive:
-      src: /tmp/shapel.zip
+      src: /tmp/education-time.zip
       dest: /tmp/
       remote_src: yes
-  - name: Move Template to /var/www/html
-    shell: mv /tmp/shapel-html/* /var/www/html/
-    args:
-      creates: /var/www/html/gallery.html
+
